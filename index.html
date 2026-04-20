@@ -32,6 +32,24 @@
 
   gtag('config', 'AW-18098158458');
 </script>
+
+<!-- Event snippet for Whatsapp Click (1) conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18098158458/3r0OCL-4mZ8cEPr277VD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 </head>
 
 <body>
@@ -39,6 +57,7 @@
     <div class="popup-overlay" id="homePopup" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fullscreen image popup">
         <button class="popup-close" id="closePopup" type="button" aria-label="Close popup">X</button>
         <a href="https://wa.link/and"
+        onclick="return gtag_report_conversion('https://wa.link/and');"
             class="popup-link"
             aria-label="Open WhatsApp chat">
             <img src="Leo.jpg" alt="Fullscreen banner image" class="popup-image">
@@ -51,6 +70,7 @@
             <span>Cricket Pulse</span>
         </a>
         <a href="https://wa.link/and"
+        onclick="return gtag_report_conversion('https://wa.link/and');"
             class="whatsapp-top-right">
             <img src="logo-whatsapp.png" alt="WhatsApp" class="whatsapp-top-right-icon">
             <span>WhatsApp</span>
